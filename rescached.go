@@ -18,7 +18,7 @@ import (
 )
 
 // Version of program, overwritten by build.
-var Version = `4.4.1`
+var Version = `4.4.2`
 
 // Server implement caching DNS server.
 type Server struct {

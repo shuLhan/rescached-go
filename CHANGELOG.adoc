@@ -1,12 +1,31 @@
 // SPDX-FileCopyrightText: 2019 M. Shulhan <ms@kilabit.info>
 // SPDX-License-Identifier: GPL-3.0-or-later
 = Changelog for rescached
-Shulhan <ms@kilabit.info>
 :toc:
 :sectanchors:
 :sectlinks:
 
 Log of new features, enhancements, and/or bug fixes for each release.
+
+[#v4_4_2]
+==  rescached v4.4.2 (2023-11-10)
+
+all: remove loading system hosts file::
++
+--
+Loading and caching system hosts file (for example, /etc/hosts in POSIX)
+will leaks internal hosts if the rescached server is open to public.
+
+The system hosts file are handled by nssswitch.conf "files" internally
+so no need to loading it.
+--
+
+cmd/resolver: replace "math/rand" with "crypto/rand"::
++
+The random number from "math/rand" is predictable if the seed is known.
+Even though the random number here is only for generating unique request
+ID, we still need to prevent this by using more secure random number.
+
 
 [#v4_4_1]
 ==  rescached v4.4.1 (2023-04-01)
